@@ -1,0 +1,79 @@
+# AWS config
+BUCKET_NAME: uber-rfm-hfung4
+
+# A list of appointment status that are excluded
+# These mostly involved 1) legitimate reasons that an appointment is cancelled
+# (e.g. patient has delivered), 2) Appointments that are cancelled by the health center
+# (so the patient is not responsible), 3) Appointments that are rescheduled
+
+EXCL_STATUS_TYPES:
+  - R/S
+  - COHCANC
+  - DELIVERED
+  - ANSPH
+  - FAILEDMSG
+  - PEN
+  - EV
+  - EA
+  - cancelled mc
+  - rescheduled
+  - rescheduled mc
+
+# A list of all non in-person visit types
+
+# Video visits (MC encoding)
+# Tele-OBVoi: Telephone appointment between OB and patient (MC)
+# Tele-OBVid: Video appointment between OB and patient (MC)
+# VID-R-OB: Follow up via video with designated by the provider
+# VID-OBHR: A video appointment for post-operative -cesarean section or other surgery
+# VID-OBINIT: A video evaluation for patient for who are pregnant, requesting prenatal care, Missed period, possibly pregnant
+
+# Video Visits (COH encoding)
+# OB TE: telehealth phone call appointment
+# OB VIDEO: telehealth video appointment
+
+VIRTUAL_VISIT_TYPES:
+  - Tele-OBVoi
+  - Tele-OBVid
+  - VID-R-OB
+  - VID-OBINIT
+  - VID-OBHR
+  - OB TE
+  - OB VIDEO
+  - OB GROUP
+
+# Other appointment types to exclude
+# FAC-OB: an appointment when the provider is in clinic and the MA goes to the home for the visit.
+# confirmed: no description, only a very small number of respondents <30 have this status
+OTHER_APPT_TYPES_EXCLUDED:
+  - FAC-OB
+  - confirmed
+
+# Post-partum appointment types
+POST_PARTUM_APPT:
+  - OB POST
+  - OB-PP
+
+# Modelling dict mapping that maps variable labels to variable names
+DICT_MAPPING:
+  appointments completion percentage: p_appt_completes
+  number of completed appointments: n_appt_completes
+  number of completed rides: n_rides_completes
+  number of total appointments: n_appt
+  rides per appointment: rides_per_appt
+  mean distance travelled on Uber (miles): mean_distance_travelled
+  mean ride duration on Uber (minutes): mean_ride_duration
+  frequent users (rides per appointment ratio >0.5): freq_users
+  completed all appointments: completed_all_appts
+
+# Modelling IV and DV options
+IV_OPTIONS:
+  - number of completed rides
+  - rides per appointment
+  - frequent users (rides per appointment ratio >0.5)
+  - mean distance travelled on Uber (miles)
+  - mean ride duration on Uber (minutes)
+
+DV_OPTIONS:
+  - appointments completion percentage
+  - completed all appointments
