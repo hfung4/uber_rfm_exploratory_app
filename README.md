@@ -17,4 +17,4 @@
 
 - In terminal: *streamlit run app.py* to run the app locally on your machine.
 
-- This app was also deployed as a private app on Streamlit Cloud. The app can be accessed via this link
+- This app was also deployed as a private app on Streamlit Cloud. The app can be accessed via this [link](https://hfung4-uber-rfm-exploratory-app-app-7orp2v.streamlit.app/)
